@@ -1,0 +1,29 @@
+spring:
+  profiles:
+    active: dev  # profil actif par défaut
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/devdb
+    username: root
+    password: root
+  server:
+    port: 8080
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: test
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: root
+    password: root
+  server:
+    port: 8080

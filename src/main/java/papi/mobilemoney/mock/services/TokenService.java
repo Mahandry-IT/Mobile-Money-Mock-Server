@@ -31,7 +31,7 @@ public class TokenService {
         String authorization =  headers.get(header.toLowerCase());
         if(authorization == null || authorization.isEmpty()){
             throw new MobileMoneyException(MobileMoneyOperator.MVOLA,
-                    "Invalid client authentication",
+                    "invalid_client",
                     String.format("We need our %s in the header.", header));
         }
 
@@ -41,8 +41,8 @@ public class TokenService {
 
         // Setting up the token entity to save in the database
         Token entity = new Token();
-        entity.setAccess_token(token);
-        entity.setToken_type("Bearer");
+        entity.setAccessToken(token);
+        entity.setTokenType("Bearer");
         entity.setExpires_at(TokenHandler.addSecondNow(tokenValidity));
 
         tokenRepository.save(entity);

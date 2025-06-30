@@ -15,12 +15,12 @@ public class Token {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idtoken;
 
-    @Column(nullable = false, unique = true)
-    private String access_token;
+    @Column(name = "access_token", nullable = false, unique = true)
+    private String accessToken;
 
     @Column(nullable = false)
     private LocalDateTime expires_at;
 
-    @Column(nullable = false)
-    private String token_type;
+    @Column(name = "token_type", nullable = false)
+    private String tokenType;
 }

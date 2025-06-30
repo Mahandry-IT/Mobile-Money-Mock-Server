@@ -24,6 +24,8 @@ public class MvolaTokenService {
 
     @Autowired
     private TokenService tokenService;
+    @Autowired
+    private TokenRepository tokenRepository;
 
     public MvolaTokenResponse createMvolaToken(MvolaTokenRequest request, Map<String, String> headers) {
         if (tokenProperties.getIdentity().getGrantType().compareTo(request.getGrant_type()) != 0) {

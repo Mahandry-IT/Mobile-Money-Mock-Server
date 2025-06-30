@@ -41,8 +41,8 @@ public class TokenService {
 
         // Setting up the token entity to save in the database
         Token entity = new Token();
-        entity.setAccess_token(token);
-        entity.setToken_type("Bearer");
+        entity.setAccessToken(token);
+        entity.setTokenType("Bearer");
         entity.setExpires_at(TokenHandler.addSecondNow(tokenValidity));
 
         tokenRepository.save(entity);

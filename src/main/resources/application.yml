@@ -1,29 +1,20 @@
 spring:
   profiles:
-    active: dev  # profil actif par défaut
-
----
-
-spring:
+    active: dev
   config:
-    activate:
-      on-profile: dev
-  datasource:
-    url: jdbc:mysql://localhost:3306/devdb
-    username: root
-    password: root
-  server:
-    port: 8080
-
----
-
-spring:
-  config:
-    activate:
-      on-profile: test
-  datasource:
-    url: jdbc:h2:mem:testdb
-    username: root
-    password: root
-  server:
-    port: 8080
+    import: "classpath:config.properties"
+token:
+  ByteLength: 128
+  validity:
+    Mvola: ${MVOLA_VALIDITY_TOKEN}
+    AirtelMoney: ${AIRTELMONEY_VALIDITY_TOKEN}
+    OrangeMoney: ${ORANGEMONEY_VALIDITY_TOKEN}
+  authorization:
+    Mvola: ${MVOLA_AUTHORIZATION}
+    AirtelMoney: ${AIRTELMONEY_AUTHORIZATION}
+    OrangeMoney: ${ORANGEMONEY_AUTHORIZATION}
+  identity:
+    AirtelMoney: ${AIRTELMONEY_ID}
+server:
+  servlet:
+    context-path: "/api/mock"

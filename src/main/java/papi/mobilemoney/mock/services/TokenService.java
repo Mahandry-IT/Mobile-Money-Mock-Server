@@ -31,7 +31,7 @@ public class TokenService {
         String authorization =  headers.get(header.toLowerCase());
         if(authorization == null || authorization.isEmpty()){
             throw new MobileMoneyException(MobileMoneyOperator.MVOLA,
-                    "Invalid client authentication",
+                    "invalid_client",
                     String.format("We need our %s in the header.", header));
         }
 

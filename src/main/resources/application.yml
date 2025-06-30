@@ -15,6 +15,7 @@ token:
     OrangeMoney: ${ORANGEMONEY_AUTHORIZATION}
   identity:
     AirtelMoney: ${AIRTELMONEY_ID}
+    GrantType: "client_credentials"
 server:
   servlet:
     context-path: "/api/mock"

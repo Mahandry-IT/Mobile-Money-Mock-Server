@@ -6,5 +6,6 @@ import lombok.Data;
 public class Identity {
 
     private String AirtelMoney;
+    private String GrantType;
 
 }

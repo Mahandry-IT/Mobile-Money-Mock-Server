@@ -26,6 +26,12 @@ public class MvolaTokenService {
     private TokenService tokenService;
 
     public MvolaTokenResponse createMvolaToken(MvolaTokenRequest request, Map<String, String> headers) {
+        if (tokenProperties.getIdentity().getGrantType().compareTo(request.getGrant_type()) != 0) {
+            throw new MobileMoneyException(MobileMoneyOperator.MVOLA,
+                    "Invalid grant type",
+                    "invalid_client");
+        }
+
         ReflectionUtils.checkFieldValue(MobileMoneyOperator.MVOLA, request);
         if (headers == null || headers.isEmpty()){
             throw new MobileMoneyException(MobileMoneyOperator.MVOLA,

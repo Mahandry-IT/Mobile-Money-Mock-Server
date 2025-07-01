@@ -2,24 +2,18 @@ package papi.mobilemoney.mock.data.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 
+@Getter
 @AllArgsConstructor
 public enum MobileMoneyOperator {
 
-    ORANGE_MONEY("Orange Money", "OM"),
-    AIRTEL_MONEY("Airtel Money", "AM"),
-    MVOLA("MVOLA", "MV");
+    ORANGE_MONEY("Orange Money", "ORANGE_MONEY"),
+    AIRTEL_MONEY("Airtel Money", "AIRTEL_MONEY"),
+    MVOLA("MVola", "MVOLA");
 
     private final String name;
     private final String code;
-
-    public String getName() {
-        return name;
-    }
-
-    public String getCode() {
-        return code;
-    }
 
     public static MobileMoneyOperator fromCode(String code) {
         for (MobileMoneyOperator operator : values()) {

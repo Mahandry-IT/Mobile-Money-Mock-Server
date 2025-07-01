@@ -4,7 +4,7 @@ spring:
   config:
     import: "classpath:config.properties"
 token:
-  ByteLength: 128
+  ByteLength: ${BYTE_LENGTH}
   validity:
     Mvola: ${MVOLA_VALIDITY_TOKEN}
     AirtelMoney: ${AIRTELMONEY_VALIDITY_TOKEN}
@@ -15,7 +15,14 @@ token:
     OrangeMoney: ${ORANGEMONEY_AUTHORIZATION}
   identity:
     AirtelMoney: ${AIRTELMONEY_ID}
-    GrantType: "client_credentials"
+    GrantType: ${IDENTITY_GRANT_TYPE}
+currency:
+  Mvola: ${MVOLA_CURRENCY}
+  OrangeMoney: ${ORANGEMONEY_CURRENCY}
+amount:
+  Mvola: ${MVOLA_MINIMAL_AMOUNT}
+  AirtelMoney: ${AIRTELMONEY_MINIMAL_AMOUNT}
+  OrangeMoney: ${ORANGEMONEY_MINIMAL_AMOUNT}
 server:
   servlet:
     context-path: "/api/mock"

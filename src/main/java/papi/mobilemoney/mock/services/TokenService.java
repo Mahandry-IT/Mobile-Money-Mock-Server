@@ -43,7 +43,8 @@ public class TokenService {
         Token entity = new Token();
         entity.setAccessToken(token);
         entity.setTokenType("Bearer");
-        entity.setExpires_at(TokenHandler.addSecondNow(tokenValidity));
+        entity.setProviderCode(operator.getCode());
+        entity.setExpiresAt(TokenHandler.addSecondNow(tokenValidity));
 
         tokenRepository.save(entity);
     }
